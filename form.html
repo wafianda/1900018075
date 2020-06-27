@@ -4,7 +4,25 @@
 	<title>form</title>
 </head>
 <body>
-<form action="form.html" method="get">
+	<?php
+$name = $hobi = $agama = $komentar = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $nama = test_input($_POST["nama"]);
+  $hobi = test_input($_POST["hobi"]);
+  $agama = test_input($_POST["agama"]);
+  $komentar = test_input($_POST["komentar"]);
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
  
 nama     :
 <input type="text" name="nama">
@@ -35,10 +53,19 @@ komentar :
 </textarea>
 <br />
 
-<button type="button" onclick="alert('DONE')">
-submit
-</button>
-
+<input type="submit" name="submit" value="Submit">  
 </form>
+<?php
+
+echo "<h2>VALIDASI DATA:</h2>";
+echo $nama;
+echo "<br>";
+echo $hobi;
+echo "<br>";
+echo $agama;
+echo "<br>";
+echo $komentar;
+echo "<br>";
+?>
 </body>
 </html>
