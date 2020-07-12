@@ -1,0 +1,13 @@
+body {
+margin:0 auto;
+background:url(tes.jpg) no-repeat fixed top center;
+background-size: cover;
+-webkit-background-size:cover;
+color:#00FF00
+}
+ #tabel {
+margin:10px auto;
+padding:20px;
+width:800px;
+border:1px solid #888;
+}
